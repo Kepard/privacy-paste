@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Privacy Paste · local test</title><link rel="stylesheet" href="ui.css"></head><body class="test-page">
+<header><div class="brand">▰ Privacy Paste</div><span class="tag">PRIVATE TEST PAGE</span></header><main>
+<h1>Try a safer paste.</h1><p>This page belongs to the extension. No AI provider receives anything here. Load the model from the popup, copy the fictional sample below, and paste it into each field.</p>
+<pre id="sample">My name is Alice Smith. My email is alice.smith@example.com and my phone number is 415-555-0132. I live at 123 Maple Street, Springfield, IL 62704.</pre>
+<p>Select the sample and copy it with Ctrl/Cmd+C. Then paste with Ctrl/Cmd+V or your browser’s Paste menu. Expected: detected values become [NAME], [EMAIL], [PHONE] and [ADDRESS]. Actual boundaries can vary.</p>
+<h2>Standard textarea</h2><label for="plain" class="sr-only">Standard textarea</label><textarea id="plain" placeholder="Paste the sample here"></textarea>
+<h2>Single-line input</h2><label for="single" class="sr-only">Single-line input</label><input id="single" placeholder="Try pasting here too">
+<h2>Rich text editor</h2><div id="rich" contenteditable="true" role="textbox" aria-label="Rich text editor" aria-multiline="true"></div>
+<p>Next, add a <b>Name</b> exception for <b>Alice Smith</b> in the popup. Paste again: the exact detected name should remain, while the email and phone remain hidden. Remove the exception to restore name redaction.</p>
+<h2>Direct model check</h2><p>This sends the fictional sample to the same local worker used for pastes. This check does not affect your paste counts.</p><div class="actions"><button id="scan">Scan sample locally</button><button id="clear">Clear fields</button></div><output id="output" aria-live="polite">Results will appear here.</output>
+<p class="muted">After setup, disconnect the network and repeat. Also test before loading the model: the paste must be blocked. This verifies local operation and failure handling without sending a prompt.</p>
+</main><script src="content.js"></script><script type="module" src="test-page.js"></script></body></html>

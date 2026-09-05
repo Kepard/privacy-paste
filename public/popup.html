@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Privacy Paste</title><link rel="stylesheet" href="ui.css"></head>
+<body class="popup">
+  <header><div class="brand"><span class="mark" aria-hidden="true">▰</span> Privacy Paste</div><span class="tag">LOCAL ONLY</span></header>
+  <main>
+    <section class="hero"><p class="eyebrow">LESS SHARED. MORE PRIVATE.</p><h1><span id="hidden">0</span><span class="hero-label">sensitive items hidden</span></h1><p id="summary" class="muted">0 characters · 0 filtered pastes</p></section>
+    <section class="engine"><div class="row"><strong>OpenAI Privacy Filter</strong><span id="engine-label" class="tag">NOT LOADED</span></div><p id="engine-detail" class="muted">Load the model to protect your next paste.</p><progress id="progress" max="100" value="0" hidden aria-label="Model download progress"></progress><button id="load" class="primary">Load local model</button><p class="fine">First download ≈ 950 MB. Cached on this device. WebGPU required.</p></section>
+    <section><div class="row"><h2>This website</h2><span id="site-status" class="tag">CHECKING</span></div><p id="site-name" class="muted site-name">—</p><button id="add-site" hidden>Protect this website</button><p id="site-help" class="fine"></p></section>
+    <section><div class="row"><h2>Allowed information</h2><span id="rule-count" class="muted">0 exceptions</span></div><p class="muted">Keep only an exact detected value. Everything else is still filtered.</p><ul id="rules" class="rules"></ul><form id="rule-form"><div class="rule-input"><label class="sr-only" for="kind">Information type</label><select id="kind"></select><label class="sr-only" for="value">Exact value to allow</label><input id="value" maxlength="200" placeholder="e.g. Alice Smith" required autocomplete="off"></div><button type="submit">Add exception</button></form><p class="fine">Case-sensitive, whole detected values. Saved on this device, never synced. A name exception does not allow an email containing that name.</p></section>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <footer><button id="test" class="text-button">Open local test page ↗</button><button id="reset" class="text-button">Reset counts</button></footer>
+    <p class="fine ending">Review before sending. Detection can miss personal data. Text pastes only; your system clipboard stays unchanged.</p>
+  </main><script type="module" src="popup.js"></script>
+</body></html>
